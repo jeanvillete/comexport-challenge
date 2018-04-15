@@ -1,0 +1,13 @@
+spring:
+  profiles:
+  main:
+    banner-mode: console
+
+logging:
+  config: classpath:logback-local.xml
+
+banner:
+  location: classpath:banner-local.txt
+
+server:
+  port: 8080
