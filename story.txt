@@ -44,7 +44,7 @@ Então 'o registro encontrado baseado no UUID deve ser retornado'
 Cenário 7: Listagem de registros ContaContabil
 Dado 'A solicitação de listagem de todos os registros'
 Quando 'há N registros armazenados internamente (N >= 0)'
-Então 'retornar uma consta contendo os registros armezenados internamente'
+Então 'retornar uma lista contendo os registros armezenados internamente'
 
 Cenário 8: Listagem com falha, de registros ContaContabil filtrados pelo parâmetro "contaContabil" inválido
 Dado 'Um parâmetro chamado "contaContabil", na solicitação de listagem de todos os registros filtrados por este parâmetro'
