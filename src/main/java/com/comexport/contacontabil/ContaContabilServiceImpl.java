@@ -1,5 +1,6 @@
 package com.comexport.contacontabil;
 
+import com.comexport._stats._Stats;
 import com.comexport.exception.InvalidDataException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +86,33 @@ public class ContaContabilServiceImpl implements ContaContabilService, Initializ
             .stream()
             .filter( _contaContabil -> _contaContabil.getContaContabil().equals( contaContabil ) )
             .collect( Collectors.toList() );
+    }
+
+    @Override
+    public _Stats _stats() {
+        return new _Stats(
+            this.repository.list()
+                .stream()
+                .map( ContaContabil::getValor )
+                .collect( Collectors.toList() )
+        );
+    }
+
+    @Override
+    public _Stats _stats( Long contaContabil ) throws InvalidDataException {
+        InvalidDataException checkInvalid = new InvalidDataException();
+        if ( contaContabil == null || contaContabil < 0 ) {
+            checkInvalid.addMessage( "The argument 'contaContabil' cannot be null and must be equals or greater than 0." );
+        }
+        checkInvalid.throwIfExists();
+
+        return new _Stats(
+            this.repository.list()
+                .stream()
+                .filter( _contaContabil -> _contaContabil.getContaContabil().equals( contaContabil ) )
+                .map( ContaContabil::getValor )
+                .collect( Collectors.toList() )
+        );
     }
 
 }

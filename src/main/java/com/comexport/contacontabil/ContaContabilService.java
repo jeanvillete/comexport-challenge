@@ -1,5 +1,6 @@
 package com.comexport.contacontabil;
 
+import com.comexport._stats._Stats;
 import com.comexport.exception.InvalidDataException;
 
 import java.util.List;
@@ -17,4 +18,7 @@ public interface ContaContabilService {
 
     List< ContaContabil > list( Long contaContabil ) throws InvalidDataException;
 
+    _Stats _stats();
+
+    _Stats _stats( Long contaContabil ) throws InvalidDataException;
 }
