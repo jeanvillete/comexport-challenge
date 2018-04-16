@@ -3,8 +3,8 @@ $ mvn spring-boot:run
 A aplicação estará respondendo na porta 8080
 
 Exemplos de requisição;
-# Cadastro de lançamento contábil
-$ curl -s -w '\n' -H 'Content-Type: application/json' -X POST -d '{"contaContabil": 1111001,"data": 20170130,"valor": 25000.15}' 'http://localhost:8080/lancamentos-contabeis/' | jq .
+## Cadastro de lançamento contábil
+$ curl -s -w '\n' -H 'Content-Type: application/json' -X POST -d '{"contaContabil": 1111001,"data": 20170130,"valor": 25000.15}' 'http://localhost:8080/lancamentos-contabeis/'
 
 ...
 
@@ -12,8 +12,11 @@ $ curl -s -w '\n' -H 'Content-Type: application/json' -X POST -d '{"contaContabi
   "id": "1d84024e-12ed-4c31-947e-370508725e75"
 }
 
-# Verifica Cadastro de lançamento contábil
-$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/' | jq .
+### Verifica Cadastro de lançamento contábil
+$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/'
+
+...
+
 [
   {
     "contaContabil": 1111001,
@@ -33,7 +36,10 @@ $ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/' | jq .
 ]
 
 # Busca lançamento contábil por ID
-$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/1d84024e-12ed-4c31-947e-370508725e75' | jq .
+$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/1d84024e-12ed-4c31-947e-370508725e75'
+
+...
+
 {
   "contaContabil": 1111001,
   "data": 20170130,
@@ -41,7 +47,10 @@ $ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/1d84024e-12ed-4c3
 }
 
 # Busca lançamentos contábeis por Conta Contábil
-$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/?contaContabil=1111001' | jq .
+$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/?contaContabil=1111001'
+
+...
+
 [
   {
     "contaContabil": 1111001,
@@ -56,7 +65,10 @@ $ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/?contaContabil=11
 ]
 
 # Busca estatísticas total dos lançamentos contábeis
-$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/_stats/' | jq .
+$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/_stats/'
+
+...
+
 {
   "soma": 25151.890000000003,
   "min": 1,
@@ -66,7 +78,10 @@ $ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/_stats/' | jq .
 }
 
 # Busca estatísticas dos lançamentos contábeis por conta contábil
-curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/_stats/?contaContabil=1111001' | jq .
+$ curl -s -w '\n' 'http://localhost:8080/lancamentos-contabeis/_stats/?contaContabil=1111001'
+
+...
+
 {
   "soma": 25150.890000000003,
   "min": 150.74,
