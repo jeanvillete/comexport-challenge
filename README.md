@@ -1,5 +1,6 @@
 ## Instruções para Execução
-$ mvn spring-boot:run
+	$ mvn spring-boot:run
+
 A aplicação estará respondendo na porta 8080
 
 Exemplos de requisição;
