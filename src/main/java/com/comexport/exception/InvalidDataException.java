@@ -10,6 +10,14 @@ public class InvalidDataException extends Exception {
 
     private List< String > messages = new ArrayList<>();
 
+    public InvalidDataException() {
+    }
+
+    public InvalidDataException( String message ) {
+        super( message );
+        this.addMessage( message );
+    }
+
     public void addMessage( String message ) {
         this.messages.add( message );
     }

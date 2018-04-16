@@ -29,13 +29,11 @@ public class ContaContabilServiceImpl implements ContaContabilService, Initializ
 
     @Override
     public String insert( ContaContabil contaContabil ) throws InvalidDataException {
-        InvalidDataException checkInvalid = new InvalidDataException();
-
         if ( contaContabil == null ) {
-            checkInvalid.addMessage( "The argument 'contaContabil' cannot be null." );
+            throw new InvalidDataException( "The argument 'contaContabil' cannot be null." );
         }
-        checkInvalid.throwIfExists();
 
+        InvalidDataException checkInvalid = new InvalidDataException();
         if ( contaContabil.getContaContabil() == null || contaContabil.getContaContabil() < 0 ) {
             checkInvalid.addMessage( "The parameter 'contaContabil' must be equals or greater than 0." );
         }
@@ -52,19 +50,15 @@ public class ContaContabilServiceImpl implements ContaContabilService, Initializ
 
     @Override
     public ContaContabil get( String uuid ) throws InvalidDataException {
-        InvalidDataException checkInvalid = new InvalidDataException();
-
         if ( StringUtils.isEmpty( uuid ) ) {
-            checkInvalid.addMessage( "The argument 'uuid' cannot neither be null nor empty." );
+            throw new InvalidDataException( "The argument 'uuid' cannot neither be null nor empty." );
         }
-        checkInvalid.throwIfExists();
 
         try {
             UUID.fromString( uuid );
         } catch ( IllegalArgumentException e ) {
-            checkInvalid.addMessage( "The argument 'uuid' doesn't represent a valid UUID; provided uuid value; " + uuid );
+            throw new InvalidDataException( "The argument 'uuid' doesn't represent a valid UUID; provided uuid value; " + uuid );
         }
-        checkInvalid.throwIfExists();
 
         return this.repository.get( uuid );
     }
@@ -76,11 +70,9 @@ public class ContaContabilServiceImpl implements ContaContabilService, Initializ
 
     @Override
     public List< ContaContabil > list( Long contaContabil ) throws InvalidDataException {
-        InvalidDataException checkInvalid = new InvalidDataException();
         if ( contaContabil == null || contaContabil < 0 ) {
-            checkInvalid.addMessage( "The argument 'contaContabil' cannot be null and must be equals or greater than 0." );
+            throw new InvalidDataException( "The argument 'contaContabil' cannot be null and must be equals or greater than 0." );
         }
-        checkInvalid.throwIfExists();
 
         return this.repository.list()
             .stream()
@@ -100,11 +92,9 @@ public class ContaContabilServiceImpl implements ContaContabilService, Initializ
 
     @Override
     public _Stats _stats( Long contaContabil ) throws InvalidDataException {
-        InvalidDataException checkInvalid = new InvalidDataException();
         if ( contaContabil == null || contaContabil < 0 ) {
-            checkInvalid.addMessage( "The argument 'contaContabil' cannot be null and must be equals or greater than 0." );
+            throw new InvalidDataException( "The argument 'contaContabil' cannot be null and must be equals or greater than 0." );
         }
-        checkInvalid.throwIfExists();
 
         return new _Stats(
             this.repository.list()

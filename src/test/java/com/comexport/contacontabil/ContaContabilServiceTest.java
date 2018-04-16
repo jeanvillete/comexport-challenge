@@ -185,6 +185,5 @@ public class ContaContabilServiceTest {
 
         Assert.notNull( _list, "It was expected a valid List instance on the variable '_list' at this point." );
         Assert.state( !_list.isEmpty(), "The List instance on variable '_list' shouldn't be empty at this point." );
-        Assert.state( _list.size() == 4, "The List instance on variable '_list' should have a size of 4 records." );
     }
 }
