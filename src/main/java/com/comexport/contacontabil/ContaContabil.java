@@ -1,5 +1,11 @@
 package com.comexport.contacontabil;
 
+import com.comexport.databind.LocalDateDeserializer;
+import com.comexport.databind.LocalDateSerializer;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.time.LocalDate;
 
 /**
@@ -7,8 +13,15 @@ import java.time.LocalDate;
  */
 public class ContaContabil {
 
+    @JsonProperty
     private Long contaContabil;
+
+    @JsonProperty
+    @JsonDeserialize( using = LocalDateDeserializer.class )
+    @JsonSerialize( using = LocalDateSerializer.class )
     private LocalDate data;
+
+    @JsonProperty
     private Double valor;
 
     public ContaContabil() {

@@ -1,4 +1,4 @@
-package com.comexport._stats;
+package com.comexport.common;
 
 import java.util.List;
 

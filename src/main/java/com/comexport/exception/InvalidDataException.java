@@ -20,4 +20,7 @@ public class InvalidDataException extends Exception {
         }
     }
 
+    public List< String > getMessages() {
+        return messages;
+    }
 }

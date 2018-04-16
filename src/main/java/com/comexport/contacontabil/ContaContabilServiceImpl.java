@@ -1,6 +1,6 @@
 package com.comexport.contacontabil;
 
-import com.comexport._stats._Stats;
+import com.comexport.common._Stats;
 import com.comexport.exception.InvalidDataException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

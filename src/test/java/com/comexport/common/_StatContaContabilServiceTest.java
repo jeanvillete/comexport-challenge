@@ -1,4 +1,4 @@
-package com.comexport._stats;
+package com.comexport.common;
 
 import com.comexport.contacontabil.ContaContabil;
 import com.comexport.contacontabil.ContaContabilService;
