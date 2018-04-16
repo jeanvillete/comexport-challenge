@@ -5,6 +5,9 @@ A aplicação estará respondendo na porta 8080
 Exemplos de requisição;
 # Cadastro de lançamento contábil
 $ curl -s -w '\n' -H 'Content-Type: application/json' -X POST -d '{"contaContabil": 1111001,"data": 20170130,"valor": 25000.15}' 'http://localhost:8080/lancamentos-contabeis/' | jq .
+
+...
+
 {
   "id": "1d84024e-12ed-4c31-947e-370508725e75"
 }
